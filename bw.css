@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
+* {
+    background-color: antiquewhite;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    /* font-family: 'Bagel Fat One', cursive; */
+    font-family: 'Bagel Fat One', cursive;
+
+    font-size: 30px;
+}
+
+
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-family: 'Bagel Fat One', cursive;
+    font-size: 100px;
+}
+
+#image-form {
+    /* text-align: center;
+    display: block;
+    margin: 0 auto; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+
+}
+
+
+
+#user-input {
+    position: relative;
+    width: 600px;
+    height: 40px;
+    border: 3px solid #bdc1c6;
+    border-radius: 20px;
+    margin: 10px 60px;
+
+}
+
+#button {
+    cursor: pointer;
+    background-color: deepskyblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    /* 버튼 내부 여백 조절 */
+}
+
+/* 버튼 호버 효과 */
+#button:hover {
+    opacity: 0.7;
+}
+
+input[name=user_input]::placeholder {
+    color: rgba(81, 35, 18, 0.662);
+    font-size: 1em;
+    text-align: center;
+}
+
+#response {
+    border: 5px groove;
+    width: 1024px;
+    height: 700px;
+    margin: 0 auto;
+    background-color: aliceblue;
+    margin-top: 4%;
+}
+
+
+/* 왼쪽에 고정된 사이드 바 스타일 */
+.side-bar {
+    position: fixed;
+    top: 13%;
+    left: 40px;
+    /* 왼쪽에 고정 */
+    width: 180px;
+    /* 사이드 바의 너비 조절 */
+    height: 100%;
+    color: rgb(12, 2, 2);
+    z-index: 1000;
+    overflow-y: auto;
+    /* 만약 사이드 바가 화면보다 길 경우 스크롤 생성 */
+    transition: width 0.3s ease-in-out;
+    /* 너비 변경 시 애니메이션 적용 */
+    font-family: 'Bagel Fat One', cursive;
+    font-size: 25px;
+}
+
+
+.side-bar.active {
+    width: 250px;
+    /* 활성화된 경우 너비 유지 */
+}
+
+.side-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-bar ul li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    text-align: center;
+}
+
+.side-bar ul li:last-child {
+    border-bottom: none;
+}
+
+.side-bar ul li a {
+    color: rgb(7, 6, 6);
+    text-decoration: none;
+}
+
+.side-bar ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* 오른쪽에 고정된 사이드 바 스타일 */
+.side-right {
+    position: fixed;
+    top: 8%;
+    right: 20px;
+    /* 오른쪽에 고정 */
+    width: 250px;
+    /* 사이드 바의 너비 조절 */
+    height: 50%;
+    z-index: 1000;
+    overflow-y: auto;
+    /* 만약 사이드 바가 화면보다 길 경우 스크롤 생성 */
+    transition: width 0.3s ease-in-out;
+    /* 너비 변경 시 애니메이션 적용 */
+}
+
+.side-right h3 {
+    text-align: center;
+    padding: 10px;
+
+    margin: 0;
+}
+
+.side-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-right ul li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.side-right ul li:last-child {
+    border-bottom: none;
+}
+
+.side-right ul li input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    border: none;
+    color: white;
+}
+
+.side-right button {
+    width: 100%;
+    padding: 10px;
+    background-color: deepskyblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.side-right button:hover {
+    opacity: 0.7;
+}

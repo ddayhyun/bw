@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>책으로 보는 상상의 나라</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="kim.css">
+
+
+</head>
+
+<body>
+
+    <h2>책으로 보는 상상의 나라</h2>
+    <label for="user-input">"실패없는 독서 생활을 위한 만화로 미리보기 서비스입니다." </label><br>
+    <form id="image-form">
+
+        <input id="user-input" type="text" name="user_input" placeholder="보고싶은 책의 제목을 입력해주세요."><br><br>
+
+        <input id="button" type="submit" value="미리보기">
+    </form>
+    <div id='response'></div>
+
+
+
+    <aside class="side-bar">
+
+        <ul>
+            <li>
+                <a><i class="fa-solid fa-cat"></i>책 구매로 바로가기</a>
+                <ul>
+                    <li><a
+                            href="https://www.yes24.com/main/default.aspx?ysmchn=ggl&ysmcpm=google-sponsor&ysmtac=ppc&ysmtrm=yes24&pid=123487&cosemkid=go14913756274066498&gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw2hh5COd354g9dgj_L7jw0IMHQaIAQOeVOnYR74PRzh0NqMCvOmtREaAvP6EALw_wcB">yes24</a>
+                    </li>
+                    <li><a href="https://book.interpark.com/bookPark/html/book.html">인터파크</a></li>
+                    <li><a
+                            href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=318677116&gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw2gYW6izOu7QUkFg439HJl7yXGQ8vByGbfB_rnp_nca1KJJh7km1kYaAqadEALw_wcB">알라딘</a>
+                    </li>
+                    <li><a href="https://product.kyobobook.co.kr/detail/S000001913217">교보문구</a></li>
+                    <li><a href="https://books.11st.co.kr/booksmall/BooksAction.tmall?ID=BOOKS&ctgrNo=63516">도서11번가</a>
+                    </li>
+                    <li><a href="https://www.bookslibro.com/">북스리브로</a></li>
+                    <li><a href="https://www.bandinlunis.com/front/main.do">반디앤루니스</a></li>
+                    <li><a
+                            href="https://browse.gmarket.co.kr/search?keyword=%eb%8f%84%ec%84%9c&kwid=g0041617682859k12350720&jaehuid=200011048">G마켓도서</a>
+                    </li>
+                    <li><a href="https://www.bookoa.co.kr/">북코아</a></li>
+                    <li><a href="https://booksaetong.com/">북새통문구</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </aside>
+
+    <!-- <aside class="side-right">
+        <h3>빅데이터로 알아 보는 추천도서</h3>
+        <ul>
+            <li> <input id="r_a" placeholder="나이"></li>
+            <li> <input id="r_b" placeholder="취미"></li>
+            <li> <input id="r_c" placeholder="직업"></li>
+            <li> <input id="r_d" placeholder="mbti"></li>
+            <button type="submit">알아보기</button>
+        </ul>
+    </aside> -->
+
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $('#image-form').on('submit', function (event) {
+                event.preventDefault();
+
+                var userInput = $('#user-input').val() + "서론,전개,차례,결론을 순서대로 4컷만화로그려줘";
+
+                $.ajax({
+                    url: 'http://50.17.79.201:8000/generate_image',
+                    method: 'POST',
+                    data: { user_input: userInput },
+                    dataType: 'json',
+                    beforeSend: function() {
+                $('#response').html('Loading...');
+            },
+                    success: function (response) {
+                        console.log(response);
+                        var imageUrl = response.images[0];  // 서버가 반환한 이미지 URL
+                        $('#response').html('<img src="' + imageUrl + '" alt="Generated image">');
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        $('#response').html('');
+                        alert('에러: 이미지를 불러오지 못했습니다.');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
