@@ -63,7 +63,7 @@ def generate_image():
                               refine="expert_ensemble_refiner", scheduler="DDIM", guidance_scale=7.5,
                               high_noise_frac=0.8, prompt_strength=0.8, num_inference_steps=50)
 
-    return jsonify(images)  # 이미지 정보를 불러
+    return jsonify(images)  # 이미지 정보를 불러옵
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
