@@ -8,7 +8,7 @@ from flask_cors import CORS
 def translate_to_english(text):
     if not text:
         raise ValueError("The input text cannot be empty.")
-    papago_url = "https://openapi.naver.com/v1/papago/n2mt"
+    papago_url = "https://openapi.naver.com/v1/papago/n2mt" # api
     papago_headers = {
         "X-Naver-Client-Id": "U01qEPdMcU55vqfUOMsj",
         "X-Naver-Client-Secret": "QvIU1rSU19"
