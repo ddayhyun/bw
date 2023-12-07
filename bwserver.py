@@ -18,7 +18,7 @@ def translate_to_english(text):
         "target": 'en',
         "text": text
     }
-    response = requests.post(papago_url, headers=papago_headers, data=data)
+    response = requests.post(papago_url, headers=papago_headers, data=data)#번역api
 
     if response.status_code != 200:
         raise Exception(f"Translation request failed with status code {response.status_code}. Error message: {response.text}")
