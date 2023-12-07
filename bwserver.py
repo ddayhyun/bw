@@ -10,7 +10,7 @@ def translate_to_english(text):
         raise ValueError("The input text cannot be empty.")
     papago_url = "https://openapi.naver.com/v1/papago/n2mt" # api주소추가
     papago_headers = {
-        "X-Naver-Client-Id": "U01qEPdMcU55vqfUOMsj",
+        "X-Naver-Client-Id": "U01qEPdMcU55vqfUOMsj", #번역사이트 아이디
         "X-Naver-Client-Secret": "QvIU1rSU19"
     }
     data = {
