@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import sdxl
 import requests
 from konlpy.tag import Okt
-from flask import Flask, request, jsonify #크롤링 라이
+from flask import Flask, request, jsonify #크롤링 라이브러리
 from flask_cors import CORS
 
 def translate_to_english(text):
